@@ -194,7 +194,8 @@ module Pod
     #----------------------------------------#
 
     def user_name
-      (ENV['GIT_COMMITTER_NAME'] || github_user_name || `git config user.name` || `<GITHUB_USERNAME>` ).strip
+      # github_user_name 注释，不然是数字1649
+      (ENV['GIT_COMMITTER_NAME'] || `git config user.name` || `<GITHUB_USERNAME>` ).strip
     end
 
     def github_user_name
